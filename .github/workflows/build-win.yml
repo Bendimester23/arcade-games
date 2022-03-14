@@ -15,11 +15,11 @@ jobs:
       - name: For now, move to the first game directory
         run: cd atari_breakout
       - name: Create build directory and enter
-        run: mkdir build && cd build
+        run: cd atari_breakout && mkdir build && cd build
       - name: Create cmake files
-        run: cmake ..
+        run: cd atari_breakout\build && cmake ..
       - name: Build
-        run: make
+        run: cd atari_breakout\build && make
       - uses: actions/upload-artifact@v3
         with:
           name: build
