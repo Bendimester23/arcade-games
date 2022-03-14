@@ -6,15 +6,19 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - name: For now, move to the first game directory
-        run: cd atari_breakout
+
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.1
+
       - name: Create build directory and enter
         run: cd atari_breakout && mkdir build && cd build
+
       - name: Create cmake files
         run: cd atari_breakout\build && cmake .. && dir
+
       - name: Build
-        shell: cmd
-        run: cd atari_breakout\build && msbuild.exe breakout.sln /property:Configuration=Release /property:Platform=x86
+        run: cd atari_breakout\build && msbuild breakout.sln /property:Configuration=Release /property:Platform=x86
+      
       - uses: actions/upload-artifact@v3
         with:
           name: build
