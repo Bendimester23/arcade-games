@@ -11,10 +11,7 @@ jobs:
         uses: microsoft/setup-msbuild@v1.1
 
       - name: Clone raylib source
-        run: git clone https://github.com/raysan5/raylib.git
-
-      - name: Install raylib
-        run: cd raylib\src && make PLATFORM=PLATFORM_DESKTOP install
+        run: git clone https://github.com/Microsoft/vcpkg.git --depth 1
 
       - name: Create build directory and enter
         run: cd atari_breakout && mkdir build && cd build

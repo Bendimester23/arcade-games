@@ -17,9 +17,11 @@ public:
     Ball ball;
     Brick *bricks;
     char state;
-    float countdown;
-    unsigned char health;
-    Texture2D heartTexture;
+    float countdown{};
+    unsigned char health{};
+    unsigned int currentFrame{};
+    Texture2D heartTexture{};
+
 
     void render();
 
