@@ -13,8 +13,8 @@ jobs:
       - name: Create cmake files
         run: cd atari_breakout\build && cmake .. && dir
       - name: Build
-        run: cd atari_breakout\build && make
+        run: cd atari_breakout\build && msbuild.exe breakout.sln /property:Configuration=Release /property:Platform=x86
       - uses: actions/upload-artifact@v3
         with:
           name: build
-          path: breakout
+          path: atari_breakout\build\*
