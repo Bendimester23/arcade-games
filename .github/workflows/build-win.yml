@@ -17,7 +17,7 @@ jobs:
         run: cd atari_breakout\build && cmake .. && dir
 
       - name: Build
-        run: cd atari_breakout\build && msbuild breakout.sln /property:Configuration=Release /property:Platform=x86
+        run: cd atari_breakout\build && msbuild breakout.sln /property:Configuration=Release
       
       - uses: actions/upload-artifact@v3
         with:
